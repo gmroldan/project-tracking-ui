@@ -16,4 +16,13 @@ export class TaskService {
     const url = `${this.apiUrl}?page=${page}&size=${size}`;
     return this.http.get<Task[]>(url);
   }
+
+  getTask(id: number): Observable<Task> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Task>(url);
+  }
+
+  update(task: Task): Observable<Task> {
+    return this.http.put<Task>(this.apiUrl, task);
+  }
 }
