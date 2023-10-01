@@ -1,33 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Task } from './task';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  private TASKS: Task[] = [
-    {
-      id: 1,
-      title: 'My First task',
-      description: 'This is a description',
-      storyPoints: 3,
-      priority: 'Low',
-      status: 'TODO'
-    },
-    {
-      id: 2,
-      title: 'My Second task',
-      description: 'This is a description',
-      storyPoints: 5,
-      priority: 'Low',
-      status: 'TODO'
-    }
-  ];
+  private apiUrl = 'http://localhost:8080/tasks';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getTasks(): Task[] {
-    return this.TASKS;
+  getTasks(page: number, size: number): Observable<Task[]> {
+    const url = `${this.apiUrl}?page=${page}&size=${size}`;
+    return this.http.get<Task[]>(url);
   }
 }

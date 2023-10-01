@@ -13,7 +13,11 @@ export class TasksBoardComponent {
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.tasks = this.taskService.getTasks();
+    this.taskService.getTasks(1, 10).subscribe(
+      tasks => {
+        this.tasks = tasks;
+      }
+    );
   }
 
 }
