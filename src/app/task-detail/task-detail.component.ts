@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
@@ -10,9 +10,10 @@ import { Location } from '@angular/common';
   styleUrls: ['./task-detail.component.css']
 })
 export class TaskDetailComponent {
-  @Input() task?: Task;
+  task: Task = {title: '', description: '', storyPoints: 0, priority: 'Low', status: 'TODO'};
   priorities: string[] = ['Low', 'Medium', 'High'];
   statuses: string[] = ['TODO', 'IN_PROGRESS', 'DONE'];
+  isUpdate: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,7 +21,10 @@ export class TaskDetailComponent {
     private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.getTask();
+    if (this.route.snapshot.paramMap.has('id')) {
+      this.isUpdate = true;
+      this.getTask();
+    }
   }
 
   getTask(): void {
@@ -30,8 +34,11 @@ export class TaskDetailComponent {
   }
 
   save(): void {
-    if (this.task) {
-      this.taskService.update(this.task)
+    if (this.isUpdate) {
+      this.taskService.updateTask(this.task)
+        .subscribe(() => this.goBack());
+    } else {
+      this.taskService.createTask(this.task)
         .subscribe(() => this.goBack());
     }
   }

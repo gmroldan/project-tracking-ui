@@ -22,7 +22,11 @@ export class TaskService {
     return this.http.get<Task>(url);
   }
 
-  update(task: Task): Observable<Task> {
+  updateTask(task: Task): Observable<Task> {
     return this.http.put<Task>(this.apiUrl, task);
+  }
+
+  createTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl, task);
   }
 }

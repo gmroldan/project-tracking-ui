@@ -1,5 +1,9 @@
 <div *ngIf="task">
   <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="task.title">
+  </mat-form-field>
+  <mat-form-field>
     <mat-label>Description</mat-label>
     <textarea matInput [(ngModel)]="task.description"></textarea>
   </mat-form-field>
