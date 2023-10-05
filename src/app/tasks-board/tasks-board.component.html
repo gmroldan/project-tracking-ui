@@ -1,4 +1,48 @@
 <button mat-raised-button color="primary" routerLink="/tasks/new">Create</button>
-<li *ngFor="let task of tasks">
-    <app-task-card [task]="task"></app-task-card>
-</li>
+<div cdkDropListGroup>
+    <div class="example-container">
+        <h2>To do</h2>
+    
+        <div
+          id="todo"
+          cdkDropList
+          [cdkDropListData]="todo"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of todo" cdkDrag>
+            <app-task-card [task]="item"></app-task-card>
+          </div>
+        </div>
+    </div>
+
+    <div class="example-container">
+        <h2>In Progress</h2>
+    
+        <div
+          id="in-progress"
+          cdkDropList
+          [cdkDropListData]="inProgress"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of inProgress" cdkDrag>
+            <app-task-card [task]="item"></app-task-card>
+          </div>
+        </div>
+    </div>
+
+    <div class="example-container">
+        <h2>Done</h2>
+    
+        <div
+          id="done"
+          cdkDropList
+          [cdkDropListData]="done"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of done" cdkDrag>
+            <app-task-card [task]="item"></app-task-card>
+          </div>
+        </div>
+    </div>
+
+</div>

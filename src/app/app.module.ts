@@ -14,6 +14,11 @@ import { FormsModule } from '@angular/forms';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { AppRoutingModule } from './app-routing.module';
+import {
+  CdkDrag,
+  CdkDropList,
+  CdkDropListGroup,
+} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,9 @@ import { AppRoutingModule } from './app-routing.module';
     MatFormFieldModule,
     MatButtonModule,
     MatSelectModule,
+    CdkDrag,
+    CdkDropList,
+    CdkDropListGroup,
     HttpClientModule,
     AppRoutingModule,
     FormsModule
