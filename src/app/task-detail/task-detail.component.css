@@ -1,0 +1,12 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust this value as needed */
+}
+
+.input-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Adjust this value as needed */
+}
