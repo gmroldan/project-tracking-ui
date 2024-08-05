@@ -22,8 +22,8 @@ export class TasksBoardComponent {
 
   ngOnInit(): void {
     this.sprintService.getSprintBoard(1).subscribe(
-      tasks => {
-        this.tasks = tasks;
+      board => {
+        this.tasks = board.tasks;
 
         this.todo = this.filterTasksByStatus('TODO')
         this.inProgress = this.filterTasksByStatus('IN_PROGRESS');
