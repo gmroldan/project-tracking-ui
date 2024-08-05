@@ -5,4 +5,5 @@ export interface Task {
     storyPoints: number;
     priority: string;
     status: string;
+    userIdAssigned: number | null;
 }

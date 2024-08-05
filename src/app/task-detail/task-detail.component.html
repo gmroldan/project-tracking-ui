@@ -28,6 +28,13 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field class="input-row">
+    <mat-label>Assignee</mat-label>
+    <mat-select [(ngModel)]="task.userIdAssigned">
+      <mat-option *ngFor="let status of statuses" [value]="status">{{ status }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <div>
     <button mat-raised-button color="primary" (click)="save()">Save</button>
     <button mat-raised-button (click)="goBack()">Go Back</button>

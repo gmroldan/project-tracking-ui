@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./task-detail.component.css']
 })
 export class TaskDetailComponent {
-  task: Task = {title: '', description: '', storyPoints: 0, priority: 'Low', status: 'TODO'};
+  task: Task = {title: '', description: '', storyPoints: 0, priority: 'Low', status: 'TODO', userIdAssigned: null};
   priorities: string[] = ['Low', 'Medium', 'High'];
   statuses: string[] = ['TODO', 'IN_PROGRESS', 'DONE'];
   isUpdate: boolean = false;

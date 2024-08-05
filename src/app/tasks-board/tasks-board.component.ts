@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { SprintService } from '../sprint.service';
 
 @Component({
   selector: 'app-tasks-board',
@@ -14,10 +15,13 @@ export class TasksBoardComponent {
   inProgress: Task[] = [];
   done: Task[] = [];
 
-  constructor(private taskService: TaskService) {}
+  constructor(
+    private taskService: TaskService,
+    private sprintService: SprintService
+  ) {}
 
   ngOnInit(): void {
-    this.taskService.getTasks(1, 10).subscribe(
+    this.sprintService.getSprintBoard(1).subscribe(
       tasks => {
         this.tasks = tasks;
 
