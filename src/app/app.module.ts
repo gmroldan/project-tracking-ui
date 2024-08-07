@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TasksBoardComponent } from './tasks-board/tasks-board.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,6 +31,7 @@ import {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatAutocompleteModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,

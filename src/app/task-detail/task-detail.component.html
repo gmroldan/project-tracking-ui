@@ -30,9 +30,10 @@
 
   <mat-form-field class="input-row">
     <mat-label>Assignee</mat-label>
-    <mat-select [(ngModel)]="task.userIdAssigned">
-      <mat-option *ngFor="let status of statuses" [value]="status">{{ status }}</mat-option>
-    </mat-select>
+    <input matInput [matAutocomplete]="auto" [(ngModel)]="selectedUserName">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onUserSelected($event.option.value)">
+      <mat-option *ngFor="let user of users" [value]="user">{{ user.fullName }}</mat-option>
+    </mat-autocomplete>
   </mat-form-field>
 
   <div>
