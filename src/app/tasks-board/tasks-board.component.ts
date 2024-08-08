@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from '../task';
+import { Task } from '../model/task';
 import { TaskService } from '../services/task.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ProjectService } from '../services/project.service';

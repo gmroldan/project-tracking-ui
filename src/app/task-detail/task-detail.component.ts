@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Task } from '../task';
+import { Task } from '../model/task';
 import { TaskService } from '../services/task.service';
 import { Location } from '@angular/common';
-import { User } from '../user';
+import { User } from '../model/user';
 import { ProjectService } from '../services/project.service';
 
 @Component({
