@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Task } from '../task';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-tasks-board',

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Task } from '../task';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 import { Location } from '@angular/common';
 import { User } from '../user';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-task-detail',
