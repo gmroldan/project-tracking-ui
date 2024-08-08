@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { SprintService } from '../sprint.service';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-tasks-board',
@@ -17,11 +17,11 @@ export class TasksBoardComponent {
 
   constructor(
     private taskService: TaskService,
-    private sprintService: SprintService
+    private projectService: ProjectService
   ) {}
 
   ngOnInit(): void {
-    this.sprintService.getSprintBoard(1).subscribe(
+    this.projectService.getSprintBoard(1).subscribe(
       board => {
         this.tasks = board.tasks;
 
