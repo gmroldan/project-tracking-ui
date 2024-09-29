@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LoginResponse } from '../model/login-response';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,17 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     return this.getToken() !== null;
+  }
+
+  public logout(router: Router): void {
+    this.http.get<void>(`${this.apiUrl}/logout`).subscribe({
+      next: () => {
+        localStorage.removeItem(this.tokenKey);
+        router.navigate(['/login']);
+      },
+      error(err) {
+        console.error('Logout failed', err);
+      },
+    });
   }
 }

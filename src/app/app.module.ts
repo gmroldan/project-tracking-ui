@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +25,8 @@ import {
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { LoginComponent } from './login/login.component';
+import { UserMenuComponent } from './toolbar/user-menu/user-menu.component';
+import { ToolbarComponent } from './toolbar/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { LoginComponent } from './login/login.component';
     TasksBoardComponent,
     TaskCardComponent,
     TaskDetailComponent,
-    LoginComponent
+    LoginComponent,
+    ToolbarComponent,
+    UserMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatMenuModule,
     MatSelectModule,
     MatToolbarModule,
     CdkDrag,

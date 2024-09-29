@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+	<span>Project Tracking</span>
+	
+	<ng-container *ngIf="isLoggedIn()">
+		<span class="example-spacer"></span>
+		<button mat-raised-button routerLink="/tasks/new">Create</button>
+		<app-user-menu></app-user-menu>
+	</ng-container>	
+</mat-toolbar> 
