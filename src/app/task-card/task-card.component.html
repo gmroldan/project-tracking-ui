@@ -1,4 +1,4 @@
-<mat-card *ngIf="task">
+<mat-card *ngIf="task" appearance="outlined">
     <mat-card-header>
         <a routerLink="/detail/{{task.id}}">{{ task.id }} - {{ task.title }}</a>
     </mat-card-header>
