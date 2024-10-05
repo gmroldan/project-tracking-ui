@@ -1,12 +1,9 @@
-.form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Adjust this value as needed */
+mat-card {
+	max-width: 1000px;
+	margin: 2em auto;
+	text-align: center;
 }
 
-.input-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px; /* Adjust this value as needed */
+mat-form-field {
+  display: block;
 }
