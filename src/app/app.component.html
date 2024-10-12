@@ -1,10 +1,16 @@
-<mat-drawer-container>
+<mat-toolbar color="primary">
+	<button *ngIf="isLoggedIn()" mat-icon-button (click)="sidenav.toggle()">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<span>Project Tracking</span>
+</mat-toolbar>
 
-	<mat-drawer #drawer mode="over" opened="false">
+<mat-sidenav-container>
+	<mat-sidenav #sidenav mode="over" opened="false">
 		<mat-toolbar-row>
 			<mat-list>
 				<mat-list-item>
-					<button mat-button routerLink="/tasks/new" (click)="closeDrawer()">
+					<button mat-button routerLink="/tasks/new" (click)="sidenav.close()">
 						<mat-icon>add_circle-outline</mat-icon>
 						<span>Create Task</span>
 					</button>
@@ -13,17 +19,11 @@
 		</mat-toolbar-row>
 
 		<mat-toolbar-row>
-			<app-user-menu (loggedOut)="closeDrawer()"></app-user-menu>
+			<app-user-menu (loggedOut)="sidenav.close()"></app-user-menu>
 		</mat-toolbar-row>
-	</mat-drawer>
+	</mat-sidenav>
 
-	<mat-toolbar color="primary">
-		<button *ngIf="isLoggedIn()" mat-icon-button (click)="drawer.toggle()">
-			<mat-icon>menu</mat-icon>
-		</button>
-		<span>Project Tracking</span>
-	</mat-toolbar>
-
-	<router-outlet></router-outlet>
-
-</mat-drawer-container>
+	<mat-sidenav-content>
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
