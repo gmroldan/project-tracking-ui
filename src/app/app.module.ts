@@ -11,8 +11,10 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { TaskCardComponent } from './task-card/task-card.component';
@@ -27,7 +29,6 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { LoginComponent } from './login/login.component';
 import { UserMenuComponent } from './toolbar/user-menu/user-menu.component';
-import { ToolbarComponent } from './toolbar/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,6 @@ import { ToolbarComponent } from './toolbar/toolbar/toolbar.component';
     TaskCardComponent,
     TaskDetailComponent,
     LoginComponent,
-    ToolbarComponent,
     UserMenuComponent
   ],
   imports: [
@@ -48,8 +48,10 @@ import { ToolbarComponent } from './toolbar/toolbar/toolbar.component';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatListModule,
     MatMenuModule,
     MatSelectModule,
+    MatSidenavModule,
     MatToolbarModule,
     CdkDrag,
     CdkDropList,

@@ -1,2 +1,29 @@
-<app-toolbar></app-toolbar>
-<router-outlet></router-outlet>
+<mat-drawer-container>
+
+	<mat-drawer #drawer mode="over" opened="false">
+		<mat-toolbar-row>
+			<mat-list>
+				<mat-list-item>
+					<button mat-button routerLink="/tasks/new" (click)="closeDrawer()">
+						<mat-icon>add_circle-outline</mat-icon>
+						<span>Create Task</span>
+					</button>
+				</mat-list-item>
+			</mat-list>
+		</mat-toolbar-row>
+
+		<mat-toolbar-row>
+			<app-user-menu (loggedOut)="closeDrawer()"></app-user-menu>
+		</mat-toolbar-row>
+	</mat-drawer>
+
+	<mat-toolbar color="primary">
+		<button *ngIf="isLoggedIn()" mat-icon-button (click)="drawer.toggle()">
+			<mat-icon>menu</mat-icon>
+		</button>
+		<span>Project Tracking</span>
+	</mat-toolbar>
+
+	<router-outlet></router-outlet>
+
+</mat-drawer-container>

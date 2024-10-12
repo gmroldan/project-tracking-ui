@@ -1,7 +1,9 @@
-<button mat-button [matMenuTriggerFor]="menu">User Menu</button>
-<mat-menu #menu="matMenu">  
-  <button mat-menu-item (click)="logout()">
-    <mat-icon>exit_to_app</mat-icon>
-    Logout
-  </button>
-</mat-menu>
+<span>User</span>
+<mat-list>
+  <mat-list-item>
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-list-item>
+</mat-list>
