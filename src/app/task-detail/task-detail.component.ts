@@ -27,12 +27,14 @@ export class TaskDetailComponent {
 
   ngOnInit(): void {
     this.projectService.getTeamMembers(1)
-      .subscribe(users => this.users = users);
+      .subscribe(users => {
+        this.users = users;
 
-    if (this.route.snapshot.paramMap.has('id')) {
-      this.isUpdate = true;
-      this.initTask();
-    }
+        if (this.route.snapshot.paramMap.has('id')) {
+          this.isUpdate = true;
+          this.initTask();
+        }
+      });
   }
 
   private initTask() {
@@ -46,10 +48,10 @@ export class TaskDetailComponent {
 
   private initUserAssigned(task: Task) {
     if (task.userIdAssigned) {
-      const userAssigned = this.users.find(user => user.id === task.userIdAssigned)?.fullName;
+      const userAssigned = this.users.find(user => user.id === task.userIdAssigned);
 
       if (userAssigned) {
-        this.selectedUserName = userAssigned;
+        this.selectedUserName = this.formatUserName(userAssigned);
       }
     }
   }
@@ -70,6 +72,10 @@ export class TaskDetailComponent {
 
   onUserSelected(user: any): void {
     this.task.userIdAssigned = user.id;
-    this.selectedUserName = user.fullName;
+    this.selectedUserName = this.formatUserName(user);
+  }
+
+  formatUserName(user: User): string {
+    return `${user.firstName} ${user.lastName}`;
   }
 }

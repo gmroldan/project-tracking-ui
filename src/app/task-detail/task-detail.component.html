@@ -35,7 +35,7 @@
       <mat-label>Assignee</mat-label>
       <input matInput [matAutocomplete]="auto" [(ngModel)]="selectedUserName">
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onUserSelected($event.option.value)">
-        <mat-option *ngFor="let user of users" [value]="user">{{ user.fullName }}</mat-option>
+        <mat-option *ngFor="let user of users" [value]="user">{{ formatUserName(user) }}</mat-option>
       </mat-autocomplete>
     </mat-form-field>
 
