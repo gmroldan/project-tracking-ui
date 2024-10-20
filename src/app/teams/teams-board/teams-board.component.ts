@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Team } from 'src/app/model/team';
+import { TeamService } from 'src/app/services/team.service';
 
 @Component({
   selector: 'app-teams-board',
@@ -7,12 +8,14 @@ import { Team } from 'src/app/model/team';
   styleUrls: ['./teams-board.component.css']
 })
 export class TeamsBoardComponent {
-  teams: Team[] = [
-    {id: 1, projectId: 1, projectName: 'My First Project'},
-    {id: 2, projectId: 2, projectName: 'Second Project'}
-  ];
 
-  displayedColumns: string[] = ['id', 'projectName']
-  public dataSource = this.teams;
+  displayedColumns: string[] = ['id', 'name']
+  dataSource: Team[] = [];
+
+  constructor(private teamService: TeamService) {}
+
+  ngOnInit(): void {
+    this.teamService.getTeams().subscribe(response => this.dataSource = response);
+  }
 
 }
