@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { TaskCardComponent } from './task-card/task-card.component';
@@ -29,6 +30,7 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { LoginComponent } from './login/login.component';
 import { UserMenuComponent } from './toolbar/user-menu/user-menu.component';
+import { TeamsBoardComponent } from './teams/teams-board/teams-board.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { UserMenuComponent } from './toolbar/user-menu/user-menu.component';
     TaskCardComponent,
     TaskDetailComponent,
     LoginComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    TeamsBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { UserMenuComponent } from './toolbar/user-menu/user-menu.component';
     MatMenuModule,
     MatSelectModule,
     MatSidenavModule,
+    MatTableModule,
     MatToolbarModule,
     CdkDrag,
     CdkDropList,
