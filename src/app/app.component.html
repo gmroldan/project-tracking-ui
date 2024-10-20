@@ -6,27 +6,27 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-	<mat-sidenav #sidenav mode="over" opened="false">
-		<mat-toolbar-row>
-			<mat-list>
-				<mat-list-item>
-					<button mat-button routerLink="/tasks/new" (click)="sidenav.close()">
-						<mat-icon>add_circle-outline</mat-icon>
-						<span>Create Task</span>
-					</button>
-				</mat-list-item>
-				<mat-list-item (click)="sidenav.close()">
-					<button mat-button routerLink="/teams/board">
-						<mat-icon>groups</mat-icon>
-						<span>Teams</span>
-					</button>
-				</mat-list-item>
-			</mat-list>
-		</mat-toolbar-row>
+	<mat-sidenav #sidenav mode="over">
+		<mat-list>
+			<mat-list-item>
+				<button mat-button routerLink="/tasks/new" (click)="sidenav.close()">
+					<mat-icon>add_circle-outline</mat-icon>
+					<span>Create Task</span>
+				</button>
+			</mat-list-item>
+			<mat-list-item (click)="sidenav.close()">
+				<button mat-button routerLink="/teams/board">
+					<mat-icon>groups</mat-icon>
+					<span>Teams</span>
+				</button>
+			</mat-list-item>
 
-		<mat-toolbar-row>
-			<app-user-menu (loggedOut)="sidenav.close()"></app-user-menu>
-		</mat-toolbar-row>
+			<mat-divider></mat-divider>
+			
+			<mat-list-item>
+				<app-user-menu (loggedOut)="sidenav.close()"></app-user-menu>
+			</mat-list-item>
+		</mat-list>
 	</mat-sidenav>
 
 	<mat-sidenav-content>
