@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>New Team</mat-card-title>
+  
+    <mat-card-content>
+      <mat-form-field class="input-row">
+        <mat-label>Name</mat-label>
+        <textarea matInput [(ngModel)]="team.name"></textarea>
+      </mat-form-field>
+  
+      <div>
+        <button mat-raised-button color="primary" (click)="save()">Save</button>
+        <button mat-raised-button (click)="goBack()">Go Back</button>
+      </div>
+    </mat-card-content>
+  </mat-card>

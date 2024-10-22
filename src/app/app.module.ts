@@ -31,6 +31,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { LoginComponent } from './login/login.component';
 import { UserMenuComponent } from './toolbar/user-menu/user-menu.component';
 import { TeamsBoardComponent } from './teams/teams-board/teams-board.component';
+import { TeamDetailComponent } from './teams/team-detail/team-detail.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TeamsBoardComponent } from './teams/teams-board/teams-board.component';
     TaskDetailComponent,
     LoginComponent,
     UserMenuComponent,
-    TeamsBoardComponent
+    TeamsBoardComponent,
+    TeamDetailComponent
   ],
   imports: [
     BrowserModule,
