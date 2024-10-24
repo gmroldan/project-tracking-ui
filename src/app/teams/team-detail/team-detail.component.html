@@ -4,8 +4,21 @@
     <mat-card-content>
       <mat-form-field class="input-row">
         <mat-label>Name</mat-label>
-        <textarea matInput [(ngModel)]="team.name"></textarea>
+        <input matInput [(ngModel)]="team.name">
       </mat-form-field>
+
+      <mat-form-field class="input-row">
+        <mat-label>Add team member</mat-label>
+        <input matInput [matAutocomplete]="auto" [(ngModel)]="selectedUser">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onUserSelected($event.option.value)">
+          <mat-option *ngFor="let user of users" [value]="user">{{ formatUserName(user) }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-list *ngIf="selectedUsers.length > 0">
+        <span matListItemTitle>Team Members</span>
+        <mat-list-item *ngFor="let user of selectedUsers">{{ formatUserName(user) }}</mat-list-item>
+      </mat-list>
   
       <div>
         <button mat-raised-button color="primary" (click)="save()">Save</button>
