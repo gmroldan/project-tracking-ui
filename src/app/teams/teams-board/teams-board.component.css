@@ -3,3 +3,9 @@ mat-card {
 	margin: 2em auto;
 	text-align: center;
 }
+
+.new-team-button-container {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 16px;
+}

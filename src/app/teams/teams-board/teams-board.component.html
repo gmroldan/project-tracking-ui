@@ -3,7 +3,9 @@
 		<mat-card-title>Teams</mat-card-title>
 	</mat-card-header>
 	<mat-card-content>
-		<button mat-raised-button color="primary" routerLink="/teams/new">New team</button>
+		<div class="new-team-button-container">
+			<button mat-raised-button color="primary" routerLink="/teams/new">New team</button>
+		</div>
 
 		<table mat-table [dataSource]="dataSource">
 
