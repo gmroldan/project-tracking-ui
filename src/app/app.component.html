@@ -14,6 +14,12 @@
 					<span>Create Task</span>
 				</button>
 			</mat-list-item>
+			<mat-list-item>
+				<button mat-button routerLink="/board" (click)="sidenav.close()">
+					<mat-icon>directions_walk</mat-icon>
+					<span>Sprint Board</span>
+				</button>
+			</mat-list-item>
 			<mat-list-item (click)="sidenav.close()">
 				<button mat-button routerLink="/teams/board">
 					<mat-icon>groups</mat-icon>
