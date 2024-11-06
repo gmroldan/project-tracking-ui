@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: TaskDetailComponent, canActivate: [authGuard] },
   { path: 'teams/board', component: TeamsBoardComponent, canActivate: [authGuard] },
   { path: 'teams/new', component: TeamDetailComponent, canActivate: [authGuard] },
+  { path: 'teams/:id', component: TeamDetailComponent, canActivate: [authGuard] },
   { path: '', redirectTo: '/board', pathMatch: 'full' }
 ];
 

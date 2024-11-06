@@ -7,7 +7,7 @@ import { Team } from '../model/team';
   providedIn: 'root'
 })
 export class TeamService {
-
+ 
   private apiUrl = "http://localhost:8080/teams"
 
   constructor(private http: HttpClient) {}
@@ -18,5 +18,14 @@ export class TeamService {
 
   createTeam(team: Team): Observable<Team> {
     return this.http.post<Team>(this.apiUrl, team);
+  }
+
+  getTeam(id: number): Observable<Team> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Team>(url);
+  }
+
+  updateTeam(team: Team): Observable<Team> {
+    return this.http.put<Team>(this.apiUrl, team);
   }
 }

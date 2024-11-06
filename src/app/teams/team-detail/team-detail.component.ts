@@ -4,6 +4,7 @@ import { Team, TeamMember } from 'src/app/model/team';
 import { TeamService } from 'src/app/services/team.service';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-team-detail',
@@ -15,9 +16,11 @@ export class TeamDetailComponent {
   users: User[] = [];
   selectedUsers: User[] = [];
   selectedUser: string = ''; // Input value for the autocomplete
+  isUpdate: boolean = false;
 
   constructor(
     private location: Location,
+    private route: ActivatedRoute,
     private teamService: TeamService,
     private userService: UserService
   ) {}
@@ -26,6 +29,23 @@ export class TeamDetailComponent {
     this.userService.findAllUsers()
       .subscribe(userPage => {
         this.users = userPage.content;
+
+        if (this.route.snapshot.paramMap.has('id')) {
+          this.isUpdate = true;
+          this.initTeam();
+        }
+      });
+  }
+
+  private initTeam() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.teamService.getTeam(id)
+      .subscribe(team => {
+        this.team = team;
+
+        const memberIds = new Set(team.members.map(member => member.id) || []);
+        this.selectedUsers = this.users.filter(user => user.id && memberIds.has(user.id));
+        this.users = this.users.filter(user => user.id && !memberIds.has(user.id));
       });
   }
 
@@ -48,8 +68,13 @@ export class TeamDetailComponent {
       this.team.members.push(teamMember);
     }
 
-    this.teamService.createTeam(this.team)
-      .subscribe(() => this.goBack());
+    if (this.isUpdate) {
+      this.teamService.updateTeam(this.team)
+        .subscribe(() => this.goBack());
+    } else {
+      this.teamService.createTeam(this.team)
+        .subscribe(() => this.goBack());
+    }
   }
 
   goBack(): void {
