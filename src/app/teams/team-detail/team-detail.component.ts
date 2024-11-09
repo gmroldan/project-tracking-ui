@@ -63,8 +63,9 @@ export class TeamDetailComponent {
   }
 
   save(): void {
+    this.team.members = [];
     for (let user of this.selectedUsers) {
-      const teamMember: TeamMember = { id: user.id || 0, role: '' };
+      const teamMember: TeamMember = { id: user.id || 0, role: 'DEFAULT_ROLE' };
       this.team.members.push(teamMember);
     }
 
