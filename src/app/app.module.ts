@@ -33,6 +33,7 @@ import { UserMenuComponent } from './toolbar/user-menu/user-menu.component';
 import { TeamsBoardComponent } from './teams/teams-board/teams-board.component';
 import { TeamDetailComponent } from './teams/team-detail/team-detail.component';
 import { ProjectsBoardComponent } from './projects/projects-board/projects-board.component';
+import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ProjectsBoardComponent } from './projects/projects-board/projects-board
     UserMenuComponent,
     TeamsBoardComponent,
     TeamDetailComponent,
-    ProjectsBoardComponent
+    ProjectsBoardComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,

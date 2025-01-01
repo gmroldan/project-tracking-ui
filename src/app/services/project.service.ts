@@ -9,7 +9,7 @@ import { Project } from '../model/project';
   providedIn: 'root'
 })
 export class ProjectService {
-
+  
   private apiUrl = 'http://localhost:8080/projects';
 
   constructor(private http: HttpClient) { }
@@ -27,5 +27,9 @@ export class ProjectService {
   getProjects(): Observable<Project[]> {
     const url = `${this.apiUrl}`;
     return this.http.get<Project[]>(url);
+  }
+
+  createProject(project: Project): Observable<Project> {
+    return this.http.post<Project>(this.apiUrl, project);
   }
 }
