@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { User } from '../model/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Board } from '../model/board';
+import { Project } from '../model/project';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,10 @@ export class ProjectService {
   getSprintBoard(id: number): Observable<Board> {
     const url = `${this.apiUrl}/${id}/board`;
     return this.http.get<Board>(url);
+  }
+
+  getProjects(): Observable<Project[]> {
+    const url = `${this.apiUrl}`;
+    return this.http.get<Project[]>(url);
   }
 }

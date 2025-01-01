@@ -32,6 +32,7 @@ import { LoginComponent } from './login/login.component';
 import { UserMenuComponent } from './toolbar/user-menu/user-menu.component';
 import { TeamsBoardComponent } from './teams/teams-board/teams-board.component';
 import { TeamDetailComponent } from './teams/team-detail/team-detail.component';
+import { ProjectsBoardComponent } from './projects/projects-board/projects-board.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TeamDetailComponent } from './teams/team-detail/team-detail.component';
     LoginComponent,
     UserMenuComponent,
     TeamsBoardComponent,
-    TeamDetailComponent
+    TeamDetailComponent,
+    ProjectsBoardComponent
   ],
   imports: [
     BrowserModule,
