@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'teams/:id', component: TeamDetailComponent, canActivate: [authGuard] },
   { path: 'projects/board', component: ProjectsBoardComponent, canActivate: [authGuard] },
   { path: 'projects/new', component: ProjectDetailComponent, canActivate: [authGuard] },
+  { path: 'projects/:id', component: ProjectDetailComponent, canActivate: [authGuard] },
   { path: '', redirectTo: '/board', pathMatch: 'full' }
 ];
 

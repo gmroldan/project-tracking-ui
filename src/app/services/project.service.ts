@@ -29,7 +29,16 @@ export class ProjectService {
     return this.http.get<Project[]>(url);
   }
 
+  getProject(id: number): Observable<Project> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Project>(url);
+  }
+
   createProject(project: Project): Observable<Project> {
     return this.http.post<Project>(this.apiUrl, project);
+  }
+
+  updateProject(project: Project): Observable<Project> {
+    return this.http.put<Project>(this.apiUrl, project);
   }
 }
